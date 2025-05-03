@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
-import { UserRequest } from "../types/custom"
-import { apiResponse } from "../utils/apiResponse.util"
-import User from "../models/user.model"
-import Message from "../models/message.model"
-import cloudinary from "../lib/cloudinary"
-import { getReceiverSocketId, io } from "../lib/socket"
+import { UserRequest } from "../types/custom.js"
+import { apiResponse } from "../utils/apiResponse.util.js"
+import User from "../models/user.model.js"
+import Message from "../models/message.model.js"
+import cloudinary from "../lib/cloudinary.js"
+import { getReceiverSocketId, io } from "../lib/socket.js"
 
 export const getUserForSideBar = async (req: UserRequest, res: Response): Promise<void> => {
     try {

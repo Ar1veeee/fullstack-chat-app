@@ -1,10 +1,10 @@
 import express from "express"
-import authRoutes from "./routes/auth.route"
-import messageRoutes from "./routes/message.route"
+import authRoutes from "./routes/auth.route.js"
+import messageRoutes from "./routes/message.route.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import path from "path"
-import { app } from "./lib/socket"
+import { app } from "./lib/socket.js"
 
 const __dirname = path.resolve();
 

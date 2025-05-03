@@ -1,7 +1,7 @@
-import { connectDB } from "./lib/db";
+import { connectDB } from "./lib/db.js";
 import { config } from "dotenv-safe";
-import { server } from "./lib/socket";
-import "./app";
+import { server } from "./lib/socket.js";
+import "./app.js";
 config();
 
 const PORT = process.env.PORT;

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { checkAuth, login, logout, signup, updateProfile } from "../controllers/auth.controller";
-import { protectRoute } from "../middlewares/auth.middleware";
+import { checkAuth, login, logout, signup, updateProfile } from "../controllers/auth.controller.js";
+import { protectRoute } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 

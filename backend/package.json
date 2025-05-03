@@ -4,12 +4,12 @@
   "description": "",
   "main": "build/index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/server.ts",
     "prod": "node dist/server.js"
   },
   "keywords": [],
   "author": "aliefarfn",
-  "type": "commonjs",
+  "type": "module",
   "license": "ISC",
   "devDependencies": {
     "@types/cookie-parser": "^1.4.8",
