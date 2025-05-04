@@ -11,5 +11,5 @@
         "use": "@vercel/static"
       }
     ],
-    "routes": { "src": "/api/(.*)", "dest": "dist/server.js" }
+    "routes": [{ "src": "/api/(.*)", "dest": "dist/server.js" }]
   }
