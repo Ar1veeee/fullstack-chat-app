@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/server.ts",
-    "prod": "node dist/server.js"
+    "prod": "node build/server.js"
   },
   "keywords": [],
   "author": "aliefarfn",
