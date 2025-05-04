@@ -5,8 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/server.ts",
-    "prod": "node build/server.js"
+    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/index.ts",
+    "prod": "node build/index.js"
   },
   "keywords": [],
   "author": "aliefarfn",
