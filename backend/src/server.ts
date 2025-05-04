@@ -4,7 +4,7 @@ import { server } from "./lib/socket.js";
 import "./app.js";
 config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 server.listen(PORT, () => {
     console.log(`Server is listen on PORT:${PORT}`)
