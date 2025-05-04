@@ -1,13 +1,15 @@
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
+import { config } from "dotenv-safe";
+config();
 
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173"],
+        origin: process.env.NODE_ENV === "production" ?  process.env.FRONTEND_URL : "http://localhost:5173",
     }
 });
 

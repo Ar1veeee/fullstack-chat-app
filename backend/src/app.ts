@@ -1,10 +1,13 @@
 import express from "express"
 import authRoutes from "./routes/auth.route.js"
 import messageRoutes from "./routes/message.route.js"
+import testRoutes from "./routes/test.route.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import path from "path"
 import { app } from "./lib/socket.js"
+import { config } from "dotenv-safe";
+config();
 
 const __dirname = path.resolve();
 
@@ -17,6 +20,7 @@ app.use(cors({
 
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
+app.use("/api", testRoutes);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend", "dist")));
