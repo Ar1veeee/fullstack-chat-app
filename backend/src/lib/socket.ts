@@ -9,7 +9,9 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: process.env.NODE_ENV === "development" ?  "http://localhost:5173" : process.env.FRONTEND_URL,
+        origin: process.env.NODE_ENV === "development" ? "http://localhost:5173" : process.env.FRONTEND_URL,
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
@@ -31,7 +33,7 @@ io.on("connection", (socket) => {
     if (userId && typeof userId === 'string') {
         userSocketMap[userId] = socket.id;
         io.emit("getOnlineUsers", Object.keys(userSocketMap));
-      }
+    }
 
     socket.on("disconnect", () => {
         console.log(`User disconnected: ${socket.id}`);
