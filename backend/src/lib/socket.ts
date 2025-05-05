@@ -7,22 +7,22 @@ config();
 const app = express();
 const server = http.createServer(app);
 
-// Logging untuk debugging
+
 console.log("Environment:", process.env.NODE_ENV);
 console.log("Frontend URL:", process.env.FRONTEND_URL);
 
 const io = new Server(server, {
     cors: {
-        // Menggunakan origin yang lebih fleksibel
-        origin: process.env.NODE_ENV === "development" 
-            ? "http://localhost:5173" 
+
+        origin: process.env.NODE_ENV === "development"
+            ? "http://localhost:5173"
             : [process.env.FRONTEND_URL || "", "https://your-app-domain.com"],
         methods: ["GET", "POST"],
         credentials: true
     },
-    // Menambahkan konfigurasi untuk proxy/load balancer
+
     transports: ["websocket", "polling"],
-    // Meningkatkan parameter timeout
+
     pingTimeout: 60000,
     pingInterval: 25000
 });
@@ -35,14 +35,11 @@ interface UserSocketMap {
     [key: string]: string;
 }
 
-// store user online
-const userSocketMap: UserSocketMap = {}; // {userId: socketId}
+
+const userSocketMap: UserSocketMap = {};
 
 io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
-    
-    // Menambahkan logging untuk debugging
-    console.log("Socket handshake:", socket.handshake.query);
 
     const userId = socket.handshake.query.userId;
     if (userId && typeof userId === 'string') {
@@ -52,7 +49,7 @@ io.on("connection", (socket) => {
         console.error("Invalid userId received:", userId);
     }
 
-    // Menambahkan error handler
+
     socket.on("error", (error) => {
         console.error("Socket error:", error);
     });
@@ -66,7 +63,7 @@ io.on("connection", (socket) => {
     });
 });
 
-// Menambahkan error handler untuk io
+
 io.engine.on("connection_error", (err) => {
     console.error("Connection error:", err);
 });
