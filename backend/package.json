@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "build/server.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/dev-server.ts",
-    "start": "node build/index.js"
+    "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/server.ts",
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "aliefarfn",
